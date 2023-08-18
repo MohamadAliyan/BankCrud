@@ -45,10 +45,9 @@ public class Repository<T> : IRepository<T> where T : BaseEntity
         {
             throw new ArgumentNullException(nameof(entity));
         }
-        //entity.AddedDate = DateTime.Now;
-        //entity.CreatorId = currentUserId;
+       
         _entity.Add(entity);
-       // _context.SaveChanges();
+   
 
     }
 
@@ -59,10 +58,9 @@ public class Repository<T> : IRepository<T> where T : BaseEntity
         {
             throw new ArgumentNullException(nameof(entity));
         }
-        //entity.AddedDate = DateTime.Now;
-        //entity.CreatorId = currentUserId;
+        
         _entity.Add(entity);
-        //_context.SaveChanges();
+      
         return entity.Id;
 
     }
@@ -74,9 +72,7 @@ public class Repository<T> : IRepository<T> where T : BaseEntity
         {
             throw new ArgumentNullException(nameof(entity));
         }
-        //entity.ModifiedDate = DateTime.Now;
-        //entity.ModifierId = currentUserId;
-        //_context.SaveChanges();
+    
 
     }
 
@@ -89,12 +85,9 @@ public class Repository<T> : IRepository<T> where T : BaseEntity
             throw new ArgumentNullException(nameof(entity));
         }
 
-        //entity.DeletedDate = DateTime.Now;
-        //entity.DeletorId = currentUserId;
         _entity.Remove(entity);
 
 
-      //  _context.SaveChanges();
 
     }
 
