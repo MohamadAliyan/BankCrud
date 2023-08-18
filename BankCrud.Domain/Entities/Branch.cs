@@ -1,4 +1,6 @@
-﻿namespace BankCrud.Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BankCrud.Domain.Entities;
 
 public class Branch : BaseEntity
 {
@@ -6,5 +8,8 @@ public class Branch : BaseEntity
     public string Code { get; set; }
     public string Tel { get; set; }
     public string Address { get; set; }
-    //public int BankId { get; set; }
+
+    [ForeignKey("BankId")]
+    public virtual Bank Bank { get; set; }
+    public long BankId { get; set; }
 }

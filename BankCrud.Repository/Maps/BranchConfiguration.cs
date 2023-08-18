@@ -13,6 +13,13 @@ public class BranchConfiguration : BaseConfiguration<Branch>
             .HasColumnType("nvarchar(100)")
             .IsRequired(true);
 
+        builder.HasOne(p => p.Bank)
+    .WithMany(p => p.Branches)
+    .HasForeignKey(p => p.BankId)
+    .OnDelete(DeleteBehavior.NoAction)
+    .IsRequired(false)
+    ;
+
         base.Configure(builder);
 
     }

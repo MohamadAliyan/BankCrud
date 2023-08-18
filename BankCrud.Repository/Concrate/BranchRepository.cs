@@ -10,8 +10,5 @@ public class BranchRepository : Repository<Branch>, IBranchRepository
     {
         _entity = context.Set<Branch>();
     }
-    public override IQueryable<Branch> GetAll()
-    {
-        return _entity.OrderByDescending(p=>p.Id).AsQueryable();
-    }
+ 
 }
