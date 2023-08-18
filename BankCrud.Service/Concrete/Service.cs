@@ -57,6 +57,7 @@ namespace BankCrud.Service.Concrete
         {
             var config = new TypeAdapterConfig();
             config.NewConfig<TResult, TInput>().MaxDepth(1);
+            _context.SaveChanges();
             return _repository.InsertAndGetId(serviceModel.Adapt<TInput>(config), currentUserId);
 
         }
@@ -86,7 +87,7 @@ namespace BankCrud.Service.Concrete
 
             var m = mapedEntity.Adapt<TInput>();
             _repository.Update(m, currentUserId);
-          
+            _context.SaveChanges();
 
 
         }
@@ -95,7 +96,7 @@ namespace BankCrud.Service.Concrete
         {
 
             _repository.Delete(id, currentUserId);
-       
+            _context.SaveChanges();
 
         }
         
