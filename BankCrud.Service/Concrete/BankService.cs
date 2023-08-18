@@ -27,4 +27,23 @@ public class BankService : BaseService<Bank, BankServiceModel>, IBankService
         return list;
     }
 
+    public List<BankDto> GetAllWithBranchs()
+    {
+        var query=_BankRepository.GetAll().Include(p=>p.Branches).AsQueryable();
+        var banks=query.Select(p=>new BankDto {
+            Id = p.Id,
+            Name = p.Name,
+            Address=p.Address,
+            Logo=p.Logo,
+            Tel=p.Tel,
+            Branches=p.Branches.Select(s=>new BranchDto {
+                Id=s.Id ,
+                Tel=s.Tel,
+                Name=s.Name,
+                Address=s.Address,
+                Code=s.Code
+            }).ToList(),
+        }).ToList();
+        return banks;
+    }
 }

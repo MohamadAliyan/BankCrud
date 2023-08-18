@@ -5,7 +5,7 @@ namespace BankCrud.Service.Interfaces;
 
 public interface IBankService : IBaseService<Bank, BankServiceModel>
 {
-         
 
+    List<BankDto> GetAllWithBranchs();
 
 }

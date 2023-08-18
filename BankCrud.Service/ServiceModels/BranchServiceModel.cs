@@ -38,3 +38,24 @@ public class CreateServiceModel :BaseServiceModel
 
 
 }
+
+public class BankDto 
+{
+    public long  Id { get; set; }
+    public string Name { get; set; }
+    public string Tel { get; set; }
+    public string Address { get; set; }
+    public string Logo { get; set; }
+    public List<BranchDto> Branches { get; set; }
+}
+
+public class BranchDto
+{
+    public long Id { get; set; }
+
+    public string Name { get; set; }
+    public string Code { get; set; }
+    public string Tel { get; set; }
+    public string Address { get; set; }
+
+}

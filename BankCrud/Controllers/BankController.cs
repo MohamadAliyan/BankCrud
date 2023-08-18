@@ -41,4 +41,13 @@ public class BankController: ApiControllerBase<Bank,BankServiceModel>
         return Ok();
 
     }
+
+
+    [HttpGet]
+    [Route("GetAllWithBranchs")]
+    public virtual IActionResult GetAllWithBranchs()
+    {
+        var model = _Service.GetAllWithBranchs();
+        return Ok(model);
+    }
 }
